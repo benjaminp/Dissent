@@ -59,6 +59,17 @@ class CreateSeededDsaKey : public ICreateKey {
     QSharedPointer<DsaPrivateKey> _dsa_key;
 };
 
+class CreateDAGAKey : public ICreateKey {
+public:
+    virtual QSharedPointer<AsymmetricKey> operator()() const
+    {
+      AsymmetricKey *key = new DsaPrivateKey(DAGA::AuthenticationContext::GetModulus(),
+                                             DAGA::AuthenticationContext::GetSubgroupSize(),
+                                             DAGA::AuthenticationContext::GetGenerator());
+      return QSharedPointer<AsymmetricKey>(key);
+    }
+};
+
 int main(int argc, char **argv)
 {
   QxtCommandOptions options;
@@ -71,7 +82,7 @@ int main(int argc, char **argv)
       QxtCommandOptions::ValueRequired);
   options.add(CL_PRIVDIR, "directory in which to put private keys (default=./keys/priv)",
       QxtCommandOptions::ValueRequired);
-  options.add(CL_KEYTYPE, "specify the key type (default=dsa, options=dsa|rsa)",
+  options.add(CL_KEYTYPE, "specify the key type (default=dsa, options=dsa|rsa|daga)",
       QxtCommandOptions::ValueRequired);
   options.add(CL_LIB, "specify the library (default=cryptopp, options=cryptopp)",
       QxtCommandOptions::ValueRequired);
@@ -132,6 +143,8 @@ int main(int argc, char **argv)
       }
     } else if (key == "rsa") {
       ck = QSharedPointer<ICreateKey>(new CreateKey<RsaPrivateKey>());
+    } else if (key == "daga") {
+      ck = QSharedPointer<ICreateKey>(new CreateDAGAKey());
     } else {
       ExitWithWarning(options, "Invalid key type");
     }

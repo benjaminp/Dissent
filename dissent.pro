@@ -153,6 +153,7 @@ HEADERS += src/Dissent.hpp \
            src/Crypto/BlogDrop/PrivateKey.hpp \
            src/Crypto/BlogDrop/ElGamalClientCiphertext.hpp \
            src/Crypto/BlogDrop/ChangingGenClientCiphertext.hpp \
+           src/Crypto/DAGA/AuthenticationContext.hpp \
            src/Identity/Authentication/IAuthenticate.hpp \
            src/Identity/Authentication/IAuthenticator.hpp \
            src/Identity/Authentication/LRSAuthenticate.hpp \
@@ -313,6 +314,7 @@ SOURCES += src/Anonymity/BaseBulkRound.cpp \
            src/Crypto/BlogDrop/PublicKey.cpp \
            src/Crypto/BlogDrop/BlogDropAuthor.cpp \
            src/Crypto/BlogDrop/PrivateKey.cpp \
+           src/Crypto/DAGA/AuthenticationContext.cpp \
            src/Identity/Group.cpp \
            src/Identity/Authentication/LRSAuthenticate.cpp \
            src/Identity/Authentication/LRSAuthenticator.cpp \

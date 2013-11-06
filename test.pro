@@ -61,6 +61,7 @@ SOURCES += ext/googletest/src/gtest-all.cc \
            src/Tests/Crypto.cpp \
            src/Tests/CSBulkRoundTest.cpp \
            src/Tests/CSOverlayTest.cpp \
+           src/Tests/DAGATest.cpp \
            src/Tests/DsaCryptoTest.cpp \
            src/Tests/EdgeTest.cpp \
            src/Tests/GroupTest.cpp \

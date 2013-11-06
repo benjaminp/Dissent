@@ -100,6 +100,8 @@
 #include "Crypto/BlogDrop/ElGamalClientCiphertext.hpp"
 #include "Crypto/BlogDrop/ChangingGenClientCiphertext.hpp"
 
+#include "Crypto/DAGA/AuthenticationContext.hpp"
+
 #include "Identity/Authentication/IAuthenticate.hpp"
 #include "Identity/Authentication/IAuthenticator.hpp"
 #include "Identity/Authentication/LRSAuthenticate.hpp"
